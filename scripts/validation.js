@@ -112,7 +112,7 @@ export function validateField(fieldName, data) {
     // Step 4 – Budget Ballpark
     case 'estimatedBudget':
       if (!data.estimatedBudget) {
-        return 'Please select a budget ballpark (or "Not sure yet — advise me").';
+        return 'Please select an estimated budget range.';
       }
       return null;
 

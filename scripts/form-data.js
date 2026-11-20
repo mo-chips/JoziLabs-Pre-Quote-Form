@@ -371,13 +371,10 @@ export const FORM_OPTIONS = {
   ],
 
   budgetRanges: [
-    { value: 'Under R2,500', label: 'Under R2,500', note: 'Quick fix / starter page', tiers: ['rescue'] },
-    { value: 'R2,500 – R5,000', label: 'R2,500 – R5,000', note: '1–5 page site / minor upgrade', tiers: ['static_small', 'rescue'] },
-    { value: 'R5,000 – R10,000', label: 'R5,000 – R10,000', note: 'Standard business site / redesign', tiers: ['static', 'redesign', 'booking'] },
-    { value: 'R10,000 – R20,000', label: 'R10,000 – R20,000', note: 'Online store / booking platform', tiers: ['ecommerce', 'booking', 'redesign'] },
-    { value: 'R20,000 – R40,000', label: 'R20,000 – R40,000', note: 'Custom web app / large store', tiers: ['ecommerce', 'webapp'] },
-    { value: 'R40,000+', label: 'R40,000+', note: 'Complex custom system', tiers: ['webapp'] },
-    { value: 'Not sure yet', label: 'Not sure yet — advise me', note: 'Recommend options for my scope', tiers: [] }
+    { value: 'Under R5,000', label: 'Under R5,000', note: 'Starter site / quick fix or rescue', tiers: ['static_small', 'rescue'] },
+    { value: 'R5,000 – R15,000', label: 'R5,000 – R15,000', note: 'Standard business site / redesign / booking', tiers: ['static', 'redesign', 'booking'] },
+    { value: 'R15,000 – R25,000', label: 'R15,000 – R25,000', note: 'Online store / advanced booking platform', tiers: ['ecommerce', 'booking'] },
+    { value: 'R25,000+', label: 'R25,000+', note: 'Custom web app / portal / large store', tiers: ['ecommerce', 'webapp'] }
   ],
 
   timelineOptions: [
@@ -543,7 +540,7 @@ export function getDynamicFlowState(data) {
 
   // Smart budget guidance tip based on scope
   let budgetRecommendation = {
-    text: 'Select a rough ballpark below — or choose "Not sure yet" and we will guide you.',
+    text: 'Select the budget range that best fits your project below.',
     highlightTier: ''
   };
 
@@ -552,30 +549,30 @@ export function getDynamicFlowState(data) {
       const isSmall = data.staticPageCount.startsWith('1 ') || data.staticPageCount.startsWith('2 ');
       budgetRecommendation = {
         text: isSmall
-          ? 'Typical range for a 1–5 page business website: R2,500 – R10,000.'
+          ? 'Typical range for a 1–5 page business website: Under R5,000 – R15,000.'
           : 'Typical range for a 6+ page business website: R5,000 – R15,000.',
         highlightTier: isSmall ? 'static_small' : 'static'
       };
     } else if (data.newSiteType === 'ecommerce') {
       budgetRecommendation = {
-        text: 'Typical range for an online store with SA payment gateways: R10,000 – R25,000+.',
+        text: 'Typical range for an online store with SA payment gateways: R15,000 – R25,000+.',
         highlightTier: 'ecommerce'
       };
     } else if (data.newSiteType === 'booking') {
       budgetRecommendation = {
-        text: 'Typical range for a booking & appointment website: R5,000 – R20,000.',
+        text: 'Typical range for a booking & appointment website: R5,000 – R25,000.',
         highlightTier: 'booking'
       };
     } else if (data.newSiteType === 'webapp') {
       budgetRecommendation = {
-        text: 'Typical range for a custom web app or client portal: R15,000 – R40,000+.',
+        text: 'Typical range for a custom web app or client portal: R25,000+.',
         highlightTier: 'webapp'
       };
     }
   } else if (isExistingSite) {
     if (tasks.includes('add_ecommerce') || tasks.includes('add_portal')) {
       budgetRecommendation = {
-        text: 'Typical range for adding e-commerce or a client portal to an existing site: R10,000 – R25,000+.',
+        text: 'Typical range for adding e-commerce or a client portal to an existing site: R15,000 – R25,000+.',
         highlightTier: 'ecommerce'
       };
     } else if (tasks.includes('redesign')) {
@@ -585,7 +582,7 @@ export function getDynamicFlowState(data) {
       };
     } else if (tasks.includes('rescue') || tasks.includes('speed_seo')) {
       budgetRecommendation = {
-        text: 'Typical range for Website Rescue, bug fixes, or speed/SEO optimisation: Under R2,500 – R7,500.',
+        text: 'Typical range for Website Rescue, bug fixes, or speed/SEO optimisation: Under R5,000.',
         highlightTier: 'rescue'
       };
     }
