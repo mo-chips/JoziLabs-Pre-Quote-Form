@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en-ZA" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Website Project Planner | JoziLabs</title>
+  <meta name="description" content="Get a tailored, fixed-price website quotation from JoziLabs. Dynamic questions adapt automatically to whether you need a brand-new site or help with an existing one.">
+  <meta property="og:title" content="JoziLabs – Dynamic Website Project Planner">
+  <meta property="og:description" content="Tell us what you need in ~2 minutes for a transparent, fixed-price JoziLabs quotation.">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicons from assets/img -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+
+  <!-- Google Fonts matching JoziLabs technical identity -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to project planner</a>
+
+  <!-- Decorative circuit background overlay inspired by assets/img/og.png -->
+  <div class="circuit-backdrop" aria-hidden="true"></div>
+
+  <!-- Top Navigation / Brand Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="https://www.jozilabs.tech/" target="_blank" rel="noopener noreferrer" class="brand-link" aria-label="JoziLabs Homepage (opens in new tab)">
+        <div class="brand-logos">
+          <img src="assets/img/logo-mark-white.png" alt="" class="brand-mark logo-dark-only" width="38" height="30">
+          <img src="assets/img/logo-word-white.png" alt="JoziLabs" class="brand-word logo-dark-only" width="132" height="24">
+          <img src="assets/img/logo-mark.png" alt="" class="brand-mark logo-light-only" width="38" height="30">
+          <img src="assets/img/logo-word.png" alt="JoziLabs" class="brand-word logo-light-only" width="132" height="24">
+        </div>
+        <span class="brand-tagline">Build. Install. Support.</span>
+      </a>
+
+      <div class="header-actions">
+        <button type="button" class="prototype-pill" data-open-privacy aria-label="Frontend Prototype Notice and Privacy Information">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>MVP Prototype</span>
+        </button>
+
+        <button type="button" id="theme-toggle-btn" class="icon-btn" aria-label="Switch colour theme" title="Switch colour theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+
+        <a href="https://www.jozilabs.tech/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm header-site-link">
+          <span>jozilabs.tech</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17L17 7M7 7h10v10"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="main-container container">
+    <!-- Hero -->
+    <section class="discovery-hero" aria-labelledby="page-title">
+      <div class="hero-content">
+        <div class="eyebrow-row">
+          <span class="reassurance-pills">
+            <span class="reassurance-pill">⚡ Adapts to your answers</span>
+            <span class="reassurance-pill">👆 Tap-first · ~2 minutes</span>
+            <span class="reassurance-pill">💬 Zero technical jargon</span>
+          </span>
+          <span class="session-saved-indicator" id="session-indicator" aria-live="polite">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            <span>Auto-saved</span>
+          </span>
+        </div>
+        <h1 id="page-title">Let's Scope Your Website Project</h1>
+        <p class="hero-lead">
+          Only see questions relevant to your project. Whether you need a brand-new site, an online store, or a rescue for an existing site, this quick planner adapts as you tap.
+        </p>
+      </div>
+    </section>
+
+    <!-- 5-Step Progress Navigation -->
+    <nav class="progress-wrapper" id="progress-navigation" aria-label="Questionnaire Steps">
+      <div class="progress-header">
+        <div class="progress-meta">
+          <span class="progress-step-badge" id="progress-step-counter">Step 1 of 5</span>
+          <span class="progress-step-name" id="progress-step-title">About You &amp; Your Business</span>
+        </div>
+        <div class="progress-actions">
+          <span class="progress-percentage" id="progress-percentage" aria-live="polite">20%</span>
+          <button type="button" id="reset-form-btn" class="link-btn link-btn-muted" title="Start over">
+            Start over
+          </button>
+        </div>
+      </div>
+
+      <div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1" id="progress-bar-aria">
+        <div class="progress-fill" id="progress-bar-fill" style="width: 20%;"></div>
+      </div>
+
+      <ol class="step-rail" id="step-rail-list">
+        <!-- Populated by scripts/app.js -->
+      </ol>
+    </nav>
+
+    <!-- Main Form Shell -->
+    <div class="form-shell" id="questionnaire-shell">
+      <form id="discovery-form" novalidate>
+        <!-- Step Header Banner -->
+        <div class="step-card-header" id="active-step-header">
+          <div class="step-title-group">
+            <span class="step-kicker" id="active-step-kicker">STEP 01 / 05</span>
+            <h2 id="active-step-heading">About You &amp; Your Business</h2>
+            <p id="active-step-subtitle">Tell us who you are and where your business operates.</p>
+          </div>
+          <div class="required-legend" aria-hidden="true">
+            <span class="req-star">*</span> Required
+          </div>
+        </div>
+
+        <!-- Step Validation Alert Banner -->
+        <div id="step-error-summary" class="error-summary-banner" role="alert" aria-live="assertive" hidden>
+          <div class="error-summary-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <div class="error-summary-text">
+            <strong>Please check the highlighted field below</strong>
+            <p id="step-error-summary-detail">Complete the required item to continue.</p>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             STEP 1: ABOUT YOU & LOCATION (Local SA vs International Toggle)
+             ============================================================ -->
+        <section class="form-step is-active" id="step-1" data-step="1" aria-labelledby="active-step-heading">
+          <div class="field-grid two-col">
+            <!-- Contact Name -->
+            <div class="form-group" data-field-group="contactName">
+              <label for="contactName" class="form-label">
+                Your name <span class="req-star" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="contactName"
+                name="contactName"
+                class="form-control"
+                placeholder="e.g. Thabo Mokoena"
+                autocomplete="name"
+                required
+                aria-required="true"
+                aria-describedby="error-contactName"
+              >
+              <p class="field-error" id="error-contactName" role="alert" hidden></p>
+            </div>
+
+            <!-- Business Name -->
+            <div class="form-group" data-field-group="businessName">
+              <label for="businessName" class="form-label">
+                Business or project name <span class="req-star" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="businessName"
+                name="businessName"
+                class="form-control"
+                placeholder="e.g. Ubuntu Logistics"
+                autocomplete="organization"
+                required
+                aria-required="true"
+                aria-describedby="error-businessName"
+              >
+              <p class="field-error" id="error-businessName" role="alert" hidden></p>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group" data-field-group="email">
+              <label for="email" class="form-label">
+                Email address <span class="req-star" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="e.g. thabo@ubuntulogistics.co.za"
+                autocomplete="email"
+                required
+                aria-required="true"
+                aria-describedby="error-email"
+              >
+              <p class="field-error" id="error-email" role="alert" hidden></p>
+            </div>
+
+            <!-- Industry Sector -->
+            <div class="form-group" data-field-group="industry">
+              <label for="industry" class="form-label">
+                Industry / sector <span class="opt-badge">Optional</span>
+              </label>
+              <select id="industry" name="industry" class="form-control">
+                <option value="">Select your industry (or skip)...</option>
+                <!-- Populated by scripts/app.js -->
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic Contact Preference + Phone/WhatsApp -->
+          <div class="field-grid two-col">
+            <fieldset class="form-fieldset card-fieldset" data-field-group="preferredContact">
+              <legend class="form-label">
+                Preferred way to receive your quote &amp; chat
+              </legend>
+              <div class="segmented-toggle" id="preferredContact-container">
+                <!-- Populated by scripts/app.js -->
+              </div>
+            </fieldset>
+
+            <div class="form-group card-fieldset" data-field-group="phone">
+              <label for="phone" class="form-label" id="label-phone">
+                WhatsApp or phone number <span class="opt-badge" id="badge-phone">Optional</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-control"
+                placeholder="e.g. 082 123 4567"
+                autocomplete="tel"
+                aria-describedby="error-phone"
+              >
+              <p class="field-error" id="error-phone" role="alert" hidden></p>
+            </div>
+          </div>
+
+          <!-- Customer / Business Location: Toggle between Local (SA) and International -->
+          <div class="location-panel card-fieldset">
+            <div class="location-panel-header">
+              <div>
+                <span class="form-label">Where is your business / customer base located? <span class="req-star">*</span></span>
+                <span class="field-hint">Switch between Local (South Africa) and International.</span>
+              </div>
+
+              <div class="segmented-toggle" role="radiogroup" aria-label="Location Scope">
+                <label class="segment-option">
+                  <input type="radio" name="locationScope" value="local" checked>
+                  <span>🇿🇦 Local (South Africa)</span>
+                </label>
+                <label class="segment-option">
+                  <input type="radio" name="locationScope" value="international">
+                  <span>🌍 International</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Local: Province Dropdown + City Textbox -->
+            <div class="field-grid two-col location-subfields" id="location-local-fields">
+              <div class="form-group" data-field-group="province">
+                <label for="province" class="form-label">
+                  Province <span class="req-star" aria-hidden="true">*</span>
+                </label>
+                <select
+                  id="province"
+                  name="province"
+                  class="form-control"
+                  aria-describedby="error-province"
+                >
+                  <option value="">Select province...</option>
+                  <!-- Populated by scripts/app.js -->
+                </select>
+                <p class="field-error" id="error-province" role="alert" hidden></p>
+              </div>
+
+              <div class="form-group" data-field-group="city">
+                <label for="city" class="form-label">
+                  City or town <span class="req-star" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  class="form-control"
+                  placeholder="e.g. Johannesburg, Sandton, Pretoria"
+                  aria-describedby="error-city"
+                >
+                <p class="field-error" id="error-city" role="alert" hidden></p>
+              </div>
+            </div>
+
+            <!-- International: Country Textbox Only -->
+            <div class="location-subfields" id="location-international-fields" hidden>
+              <div class="form-group" data-field-group="country">
+                <label for="country" class="form-label">
+                  Country <span class="req-star" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  class="form-control"
+                  placeholder="e.g. United Kingdom, Botswana, Namibia, United States"
+                  aria-describedby="error-country"
+                >
+                <p class="field-error" id="error-country" role="alert" hidden></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Short optional summary -->
+          <div class="form-group" data-field-group="businessSummary" style="margin-top: 1.25rem;">
+            <label for="businessSummary" class="form-label">
+              In one sentence, what does your business offer? <span class="opt-badge">Optional</span>
+            </label>
+            <input
+              type="text"
+              id="businessSummary"
+              name="businessSummary"
+              class="form-control"
+              placeholder="e.g. We supply and install solar backup systems for homes and offices."
+            >
+          </div>
+        </section>
+
+        <!-- ============================================================
+             STEP 2: NEW vs EXISTING & DYNAMIC PROJECT SCOPE
+             ============================================================ -->
+        <section class="form-step" id="step-2" data-step="2" aria-labelledby="active-step-heading" hidden>
+          <!-- 1. FIRST BRANCH: New Site vs Existing Site -->
+          <fieldset class="form-fieldset" data-field-group="siteSituation">
+            <legend class="form-label">
+              First, are we building a brand-new site or working on an existing one? <span class="req-star" aria-hidden="true">*</span>
+            </legend>
+            <div class="choice-cards-grid two-up-cards" id="siteSituation-container">
+              <!-- Populated by scripts/app.js -->
+            </div>
+            <p class="field-error" id="error-siteSituation" role="alert" hidden></p>
+          </fieldset>
+
+          <!-- 2. SHARED GOALS (Shown once New or Existing is chosen — fits both!) -->
+          <div id="shared-goals-block" hidden>
+            <fieldset class="form-fieldset" data-field-group="primaryGoals">
+              <legend class="form-label">
+                What are your main goals for the website? <span class="opt-badge">Tap all that apply</span>
+              </legend>
+              <div class="checkbox-pill-grid" id="primaryGoals-container">
+                <!-- Populated by scripts/app.js -->
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- ==========================================================
+               BRANCH A: BRAND-NEW WEBSITE / APP
+               ========================================================== -->
+          <div id="branch-new-site" class="dynamic-branch-panel" hidden>
+            <div class="branch-indicator-bar">
+              <span class="conditional-badge">New Build Path</span>
+              <span>Choose the type of new site below — the next questions will adapt automatically.</span>
+            </div>
+
+            <fieldset class="form-fieldset" data-field-group="newSiteType">
+              <legend class="form-label">
+                What type of new site are we building? <span class="req-star" aria-hidden="true">*</span>
+              </legend>
+              <div class="choice-cards-grid two-up-cards" id="newSiteType-container">
+                <!-- Populated by scripts/app.js -->
+              </div>
+              <p class="field-error" id="error-newSiteType" role="alert" hidden></p>
+            </fieldset>
+          </div>
+
+          <!-- ==========================================================
+               BRANCH B: EXISTING WEBSITE (REDESIGN, FIX OR UPGRADE)
+               ========================================================== -->
+          <div id="branch-existing-site" class="dynamic-branch-panel" hidden>
+            <div class="branch-indicator-bar">
+              <span class="conditional-badge">Existing Website Path</span>
+              <span>Share your current site link and tell us what needs fixing, upgrading, or redesigning.</span>
+            </div>
+
+            <div class="field-grid two-col" style="margin-bottom: 1.35rem;">
+              <div class="form-group" data-field-group="existingWebsiteUrl">
+                <label for="existingWebsiteUrl" class="form-label">
+                  Current website URL <span class="req-star" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="url"
+                  id="existingWebsiteUrl"
+                  name="existingWebsiteUrl"
+                  class="form-control"
+                  placeholder="e.g. www.mycurrentsite.co.za"
+                  aria-describedby="error-existingWebsiteUrl"
+                >
+                <p class="field-error" id="error-existingWebsiteUrl" role="alert" hidden></p>
+              </div>
+
+              <fieldset class="form-fieldset" data-field-group="existingSitePlatform">
+                <legend class="form-label">
+                  What is it currently built on? <span class="opt-badge">If known</span>
+                </legend>
+                <div class="radio-inline-group" id="existingSitePlatform-container">
+                  <!-- Populated by scripts/app.js -->
+                </div>
+              </fieldset>
+            </div>
+
+            <!-- What do you need done on your existing site? -->
+            <fieldset class="form-fieldset" data-field-group="existingSiteTasks">
+              <legend class="form-label">
+                What do you need us to do on your existing site? <span class="req-star" aria-hidden="true">*</span>
+              </legend>
+              <span class="field-hint">Select one or more. Choosing store, booking, or portal upgrades will unlock quick options below.</span>
+              <div class="choice-cards-grid" id="existingSiteTasks-container">
+                <!-- Populated by scripts/app.js -->
+              </div>
+              <p class="field-error" id="error-existingSiteTasks" role="alert" hidden></p>
+            </fieldset>
+
+            <!-- Current Pain Points -->
+            <fieldset class="form-fieldset" data-field-group="existingSitePainPoints">
+              <legend class="form-label">
+                What is frustrating you most about the current site? <span class="opt-badge">Optional</span>
+              </legend>
+              <div class="checkbox-pill-grid" id="existingSitePainPoints-container">
+                <!-- Populated by scripts/app.js -->
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- ==========================================================
+               DYNAMIC SUB-MODULE 1: STATIC / BROCHURE SITE PAGES
+               (Shown when New Site = Static OR Existing Site = Redesign)
+               ========================================================== -->
+          <div id="module-static-pages" class="conditional-feature-panel" hidden>
+            <div class="conditional-panel-header">
+              <span class="conditional-badge">Dynamic Scope · Pages &amp; Structure</span>
+              <h3>How big should the website be?</h3>
+            </div>
+
+            <fieldset class="form-fieldset">
+              <legend class="form-label">Estimated number of pages</legend>
+              <div class="budget-cards-grid" id="staticPageCount-container">
+                <!-- Populated by scripts/app.js -->
+              </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset" style="margin-bottom: 0.75rem;">
+              <div class="fieldset-header-row">
+                <legend class="form-label">Which pages / sections do you need?</legend>
+                <button type="button" class="btn btn-xs btn-ghost" id="select-core-pages-btn">Reset to core pages</button>
+              </div>
+              <div class="page-selector-grid" id="requiredPages-container">
+                <!-- Populated by scripts/app.js -->
+              </div>
+            </fieldset>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="additionalPages" class="form-label">
+                Any other custom pages or multiple languages? <span class="opt-badge">Optional</span>
+              </label>
+              <input
+                type="text"
+                id="additionalPages"
+                name="additionalPages"
+                class="form-control"
+                placeholder="e.g. Service area pages, Careers, or isiZulu / Afrikaans toggle"
+              >
+            </div>
+          </div>
+
+          <!-- ==========================================================
+               DYNAMIC SUB-MODULE 2: E-COMMERCE & PAYMENTS
+               (Shown when New Site = E-commerce OR Existing Site = Add Store)
+               ========================================================== -->
+          <div id="module-ecommerce" class="conditional-feature-panel" hidden>
+            <div class="conditional-panel-header">
+              <span class="conditional-badge">Dynamic Scope · Online Store &amp; Payments</span>
+              <h3>Store &amp; Checkout Configuration</h3>
+            </div>
+
+            <fieldset class="form-fieldset">
+              <legend class="form-label">Roughly how many products will you sell?</legend>
+              <div class="radio-inline-group" id="ecommerceProductCount-container">
+                <!-- Populated by scripts/app.js -->
+              </div>
+            </fieldset>
+
+            <div class="field-grid two-col" style="margin-bottom: 0;">
+              <fieldset class="form-fieldset" style="margin-bottom: 0;">
+                <legend class="form-label">Preferred payment gateways</legend>
+                <div class="checkbox-pill-grid single-col-pills" id="ecommerceGateways-container"></div>
+              </fieldset>
+
+              <fieldset class="form-fieldset" style="margin-bottom: 0;">
+                <legend class="form-label">Delivery &amp; collection options</legend>
+                <div class="checkbox-pill-grid single-col-pills" id="ecommerceDelivery-container"></div>
+              </fieldset>
+            </div>
+          </div>
+
+          <!-- ==========================================================
+               DYNAMIC SUB-MODULE 3: BOOKING & APPOINTMENTS
+               (Shown when New Site = Booking OR Existing Site = Add Booking)
+               ========================================================== -->
+          <div id="module-booking" class="conditional-feature-panel" hidden>
+            <div class="conditional-panel-header">
+              <span class="conditional-badge">Dynamic Scope · Bookings &amp; Scheduling</span>
+              <h3>Appointment &amp; Booking Setup</h3>
+            </div>
+
+            <div class="field-grid two-col">
+              <fieldset class="form-fieldset">
+                <legend class="form-label">What will customers book?</legend>
+                <div class="radio-inline-group" id="bookingType-container"></div>
+              </fieldset>
+
+              <fieldset class="form-fieldset">
+                <legend class="form-label">Do bookings require online payment?</legend>
+                <div class="radio-inline-group" id="bookingPaymentRequired-container"></div>
+              </fieldset>
+            </div>
+
+            <fieldset class="form-fieldset" style="margin-bottom: 0;">
+              <legend class="form-label">Helpful booking extras</legend>
+              <div class="checkbox-pill-grid" id="bookingExtras-container"></div>
+            </fieldset>
+          </div>
+
+          <!-- ==========================================================
+               DYNAMIC SUB-MODULE 4: CUSTOM WEB APP / CLIENT PORTAL
+               (Shown when New Site = Web App OR Existing Site = Add Portal)
+               ========================================================== -->
+          <div id="module-webapp" class="conditional-feature-panel" hidden>
+            <div class="conditional-panel-header">
+              <span class="conditional-badge">Dynamic Scope · Web App &amp; Client Portal</span>
+              <h3>User Accounts &amp; Portal Capabilities</h3>
+            </div>
+
+            <fieldset class="form-fieldset">
+              <legend class="form-label">Who will log into the platform?</legend>
+              <div class="radio-inline-group" id="accountUserTypes-container"></div>
+            </fieldset>
+
+            <fieldset class="form-fieldset" style="margin-bottom: 0;">
+              <legend class="form-label">What should logged-in users be able to do?</legend>
+              <div class="checkbox-pill-grid" id="webappCapabilities-container"></div>
+            </fieldset>
+          </div>
+
+          <!-- Optional extra note on Step 2 -->
+          <div id="step2-notes-block" class="form-group" style="margin-top: 1.25rem;" hidden>
+            <label for="customProjectNotes" class="form-label">
+              Anything specific about your workflow or requirements we should know? <span class="opt-badge">Optional</span>
+            </label>
+            <input
+              type="text"
+              id="customProjectNotes"
+              name="customProjectNotes"
+              class="form-control"
+              placeholder="e.g. Connect to Xero accounting, generate PDF quotes, or fix a specific checkout bug..."
+            >
+          </div>
+        </section>
+
+        <!-- ============================================================
+             STEP 3: DESIGN, CONTENT & ADD-ONS (Adapts to New vs Existing)
+             ============================================================ -->
+        <section class="form-step" id="step-3" data-step="3" aria-labelledby="active-step-heading" hidden>
+          <!-- Dynamic Brand Assets: New Site vs Existing Site -->
+          <fieldset class="form-fieldset" id="design-assets-new-block">
+            <legend class="form-label">
+              What brand materials do you already have ready? <span class="opt-badge">Tap all you have</span>
+            </legend>
+            <div class="checkbox-pill-grid" id="newSiteBrandAssets-container"></div>
+          </fieldset>
+
+          <fieldset class="form-fieldset" id="design-assets-existing-block" hidden>
+            <legend class="form-label">
+              What should we keep from your current website? <span class="opt-badge">Tap all that apply</span>
+            </legend>
+            <div class="checkbox-pill-grid" id="existingSiteKeepAssets-container"></div>
+          </fieldset>
+
+          <!-- Dynamic Visual Style Block (Shown for New Sites or Existing Sites requesting a Redesign) -->
+          <fieldset class="form-fieldset" id="visual-style-fieldset">
+            <legend class="form-label">
+              What visual vibe fits your brand best? <span class="opt-badge">Tap one</span>
+            </legend>
+            <div class="choice-cards-grid" id="visualStyle-container"></div>
+          </fieldset>
+
+          <!-- Notice shown when an Existing Site only wants Bug Fixes / Speed / SEO without a visual redesign -->
+          <div id="visual-style-preserved-note" class="disclaimer-callout" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            <span><strong>Keeping your current look:</strong> Because you selected fixes, upgrades, or SEO on your existing site (rather than a full visual redesign), we skipped the visual style questions and will preserve your current branding.</span>
+          </div>
+
+          <div class="field-grid two-col">
+            <!-- Need Creative Assistance -->
+            <fieldset class="form-fieldset card-fieldset">
+              <legend class="form-label">
+                Need JoziLabs to help create any of these? <span class="opt-badge">Optional</span>
+              </legend>
+              <div class="checkbox-pill-grid single-col-pills" id="assistanceNeeded-container"></div>
+            </fieldset>
+
+            <!-- Quick Communication & Marketing Add-ons -->
+            <fieldset class="form-fieldset card-fieldset">
+              <legend class="form-label">
+                Handy features to include <span class="opt-badge">Tap any you want</span>
+              </legend>
+              <div class="checkbox-pill-grid single-col-pills" id="commonAddons-container"></div>
+            </fieldset>
+          </div>
+
+          <!-- Optional Reference Websites -->
+          <div class="form-group">
+            <label for="admiredWebsites" class="form-label">
+              Any websites you admire or want us to use as inspiration? <span class="opt-badge">Optional</span>
+            </label>
+            <input
+              type="text"
+              id="admiredWebsites"
+              name="admiredWebsites"
+              class="form-control"
+              placeholder="Paste a website link or mention a brand whose look you love..."
+            >
+          </div>
+
+          <!-- JoziLabs Design Craft Showcase using assets/img/balance-*.png -->
+          <details class="showcase-drawer">
+            <summary class="showcase-summary">
+              <div class="showcase-summary-left">
+                <img src="assets/img/icon-48.png" alt="" width="24" height="24" class="showcase-mini-icon">
+                <span>See an example of JoziLabs' clean, mobile-first design (<em>Balance</em> App)</span>
+              </div>
+              <span class="showcase-toggle-label">View screenshots</span>
+            </summary>
+            <div class="showcase-body">
+              <p class="showcase-caption">
+                We build clean, fast interfaces designed for everyday South African mobile users. Here are 3 screens from <strong>Balance</strong>, one of our in-house products:
+              </p>
+              <div class="showcase-gallery">
+                <figure class="showcase-item">
+                  <img src="assets/img/balance-1.png" alt="Balance app clean account creation screen" loading="lazy">
+                  <figcaption>Simple, clutter-free onboarding</figcaption>
+                </figure>
+                <figure class="showcase-item">
+                  <img src="assets/img/balance-2.png" alt="Balance app shop setup screen with segmented options" loading="lazy">
+                  <figcaption>Tap-friendly mobile controls</figcaption>
+                </figure>
+                <figure class="showcase-item">
+                  <img src="assets/img/balance-3.png" alt="Balance app service pricing form in South African Rand" loading="lazy">
+                  <figcaption>Clear, jargon-free SA pricing</figcaption>
+                </figure>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <!-- ============================================================
+             STEP 4: HOSTING, TIMELINE & BUDGET (Adapts to New vs Existing)
+             ============================================================ -->
+        <section class="form-step" id="step-4" data-step="4" aria-labelledby="active-step-heading" hidden>
+          <!-- DYNAMIC SETUP A: FOR BRAND-NEW SITES -->
+          <div id="setup-branch-new" class="field-grid two-col" style="margin-bottom: 1.5rem;">
+            <fieldset class="form-fieldset card-fieldset">
+              <legend class="form-label">
+                Do you already own a domain name (e.g. <code>.co.za</code>)?
+              </legend>
+              <div class="radio-inline-group" id="newSiteDomainStatus-container"></div>
+
+              <div class="form-group" id="domain-name-input-wrap" style="margin-top: 0.85rem; margin-bottom: 0;">
+                <label for="domainNameInput" class="form-label" id="label-domainNameInput">
+                  Preferred domain name (if you have an idea) <span class="opt-badge">Optional</span>
+                </label>
+                <input
+                  type="text"
+                  id="domainNameInput"
+                  name="domainNameInput"
+                  class="form-control"
+                  placeholder="e.g. ubuntulogistics.co.za"
+                >
+              </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset card-fieldset">
+              <legend class="form-label">
+                Do you need website hosting &amp; business emails?
+              </legend>
+              <span class="field-hint">For example: <code>info@yourcompany.co.za</code></span>
+              <div class="radio-inline-group" id="newSiteHostingNeeds-container"></div>
+            </fieldset>
+          </div>
+
+          <!-- DYNAMIC SETUP B: FOR EXISTING SITES -->
+          <div id="setup-branch-existing" style="margin-bottom: 1.5rem;" hidden>
+            <fieldset class="form-fieldset card-fieldset">
+              <legend class="form-label">
+                Do you have login access to your current domain &amp; website hosting?
+              </legend>
+              <span class="field-hint">No stress if your old developer has them — we help clients recover and transfer domains regularly.</span>
+              <div class="radio-inline-group" id="existingSiteAccessStatus-container"></div>
+            </fieldset>
+          </div>
+
+          <!-- Estimated Budget (with Dynamic Scope Recommendation Tip!) -->
+          <fieldset class="form-fieldset" data-field-group="estimatedBudget">
+            <legend class="form-label">
+              What is your rough budget ballpark (ZAR)? <span class="req-star" aria-hidden="true">*</span>
+            </legend>
+            <div class="disclaimer-callout">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4M12 8h.01"></path>
+              </svg>
+              <div>
+                <strong id="dynamic-budget-tip">Typical range for your selection will appear here.</strong>
+                <div style="margin-top: 0.15rem;">These are discovery ranges to help us match the right approach — every project receives a fixed-price quote first.</div>
+              </div>
+            </div>
+
+            <div class="budget-cards-grid" id="estimatedBudget-container">
+              <!-- Populated by scripts/app.js -->
+            </div>
+            <p class="field-error" id="error-estimatedBudget" role="alert" hidden></p>
+          </fieldset>
+
+          <!-- Target Timeline (Date picker only appears if "Specific date / milestone" is tapped!) -->
+          <fieldset class="form-fieldset card-fieldset">
+            <legend class="form-label">
+              When would you ideally like this ready?
+            </legend>
+            <div class="radio-inline-group" id="timelinePreference-container"></div>
+
+            <div class="field-grid two-col conditional-subbox" id="conditional-specific-date" hidden>
+              <div class="form-group">
+                <label for="desiredLaunchDate" class="form-label">Target launch date</label>
+                <input type="date" id="desiredLaunchDate" name="desiredLaunchDate" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="milestoneDetails" class="form-label">What is the event or milestone?</label>
+                <input
+                  type="text"
+                  id="milestoneDetails"
+                  name="milestoneDetails"
+                  class="form-control"
+                  placeholder="e.g. Grand opening, product launch, summer campaign"
+                >
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Ongoing Care vs Once-off -->
+          <fieldset class="form-fieldset" data-field-group="ongoingServicePreference">
+            <legend class="form-label">
+              How would you like us to support you after launch?
+            </legend>
+            <div class="choice-cards-grid" id="ongoingServicePreference-container">
+              <!-- Populated by scripts/app.js -->
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ============================================================
+             STEP 5: QUICK REVIEW & FINISH
+             ============================================================ -->
+        <section class="form-step" id="step-5" data-step="5" aria-labelledby="active-step-heading" hidden>
+          <div class="review-intro-bar">
+            <p>Here is your tailored project snapshot. Click <strong>Edit</strong> on any card to adjust your answers.</p>
+          </div>
+
+          <!-- Dynamic Review Summary Cards -->
+          <div class="review-sections-grid" id="review-summary-container" aria-live="polite">
+            <!-- Populated dynamically by scripts/app.js -->
+          </div>
+
+          <!-- Prototype Notice Callout -->
+          <div class="prototype-review-notice">
+            <div class="prototype-notice-header">
+              <span class="prototype-tag">MVP Prototype Notice</span>
+              <button type="button" class="link-btn" data-open-privacy>View Privacy Notice (POPIA)</button>
+            </div>
+            <p>
+              This version is a <strong>frontend prototype</strong>. Clicking <em>Submit Project Enquiry</em> below validates your brief and generates a local summary you can copy or download, but <strong>your responses are not sent to a server or stored in a database</strong>.
+            </p>
+          </div>
+
+          <!-- Simple Consent Box -->
+          <div class="consent-box">
+            <div class="form-group checkbox-row-group" data-field-group="confirmAccurate">
+              <label class="consent-label" for="confirmAccurate">
+                <input
+                  type="checkbox"
+                  id="confirmAccurate"
+                  name="confirmAccurate"
+                  checked
+                  required
+                  aria-required="true"
+                  aria-describedby="error-confirmAccurate"
+                >
+                <span class="consent-text">
+                  I confirm that the project details above are accurate. <span class="req-star" aria-hidden="true">*</span>
+                </span>
+              </label>
+              <p class="field-error" id="error-confirmAccurate" role="alert" hidden></p>
+            </div>
+
+            <div class="form-group checkbox-row-group" data-field-group="consentContact">
+              <label class="consent-label" for="consentContact">
+                <input
+                  type="checkbox"
+                  id="consentContact"
+                  name="consentContact"
+                  required
+                  aria-required="true"
+                  aria-describedby="error-consentContact"
+                >
+                <span class="consent-text">
+                  I'm happy for JoziLabs to contact me with a quotation and have read the
+                  <button type="button" class="inline-privacy-link" data-open-privacy>JoziLabs Privacy Notice</button>.
+                  <span class="req-star" aria-hidden="true">*</span>
+                </span>
+              </label>
+              <p class="field-error" id="error-consentContact" role="alert" hidden></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Form Step Footer Navigation -->
+        <div class="form-nav-footer" id="form-nav-footer">
+          <button type="button" id="prev-step-btn" class="btn btn-secondary" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m15 18-6-6 6-6"></path>
+            </svg>
+            <span>Previous</span>
+          </button>
+
+          <div class="nav-right-group">
+            <button type="button" id="next-step-btn" class="btn btn-primary">
+              <span>Continue</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 18 6-6-6-6"></path>
+              </svg>
+            </button>
+
+            <button type="submit" id="submit-enquiry-btn" class="btn btn-primary btn-lg" hidden>
+              <span>Submit Project Enquiry</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- ============================================================
+         CONFIRMATION / MVP PROTOTYPE SUBMISSION SCREEN
+         ============================================================ -->
+    <section class="confirmation-screen" id="confirmation-screen" aria-labelledby="confirmation-title" hidden>
+      <div class="confirmation-card">
+        <div class="confirmation-status-banner" role="status">
+          <div class="status-icon-wrap" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 9v4"></path>
+              <path d="M12 17h.01"></path>
+              <path d="M3.6 19h16.8a1.6 1.6 0 0 0 1.39-2.4L13.39 3.2a1.6 1.6 0 0 0-2.78 0L2.21 16.6A1.6 1.6 0 0 0 3.6 19Z"></path>
+            </svg>
+          </div>
+          <div>
+            <span class="prototype-alert-badge">Frontend MVP Prototype — Not Connected to Submission Service</span>
+            <h2 id="confirmation-title">Project Brief Ready (Prototype Mode — No Data Sent)</h2>
+          </div>
+        </div>
+
+        <div class="confirmation-body">
+          <p class="confirmation-lead">
+            Your tailored project brief is ready! Because this is a <strong>frontend MVP prototype</strong>, your answers have <strong>not</strong> been transmitted to JoziLabs or saved in a database yet.
+          </p>
+
+          <div class="prototype-honesty-box">
+            <h3>What You Can Do Next</h3>
+            <ul>
+              <li><strong>Copy &amp; send right now:</strong> Click <em>Copy Project Summary</em> below and paste it into an email to <a href="mailto:hello@jozilabs.tech">hello@jozilabs.tech</a> or a WhatsApp message.</li>
+              <li><strong>Developer handoff ready:</strong> Click <em>Download JSON Payload</em> to inspect the structured payload generated by <code>buildSubmissionPayload()</code> in <code>scripts/form-data.js</code>.</li>
+            </ul>
+          </div>
+
+          <div class="confirmation-actions-bar">
+            <button type="button" id="copy-brief-btn" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+              </svg>
+              <span id="copy-brief-btn-text">Copy Project Summary</span>
+            </button>
+
+            <button type="button" id="download-json-btn" class="btn btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" x2="12" y1="15" y2="3"></line>
+              </svg>
+              <span>Download JSON Payload</span>
+            </button>
+
+            <button type="button" id="print-brief-btn" class="btn btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect width="12" height="8" x="6" y="14"></rect>
+              </svg>
+              <span>Print / Save PDF</span>
+            </button>
+          </div>
+
+          <div class="compiled-payload-preview">
+            <div class="payload-preview-header">
+              <span>Compiled Project Snapshot</span>
+              <span class="mono-badge" id="payload-timestamp"></span>
+            </div>
+            <pre id="compiled-summary-text" class="payload-pre" tabindex="0"></pre>
+          </div>
+
+          <div class="confirmation-footer-nav">
+            <button type="button" id="back-to-review-btn" class="btn btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m15 18-6-6 6-6"></path>
+              </svg>
+              <span>Back to Edit Answers</span>
+            </button>
+
+            <button type="button" id="start-new-enquiry-btn" class="btn btn-ghost">
+              <span>Start Fresh</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand-col">
+        <div class="footer-logo-row">
+          <img src="assets/img/icon-32.png" alt="" width="24" height="24" class="footer-mini-logo">
+          <strong>JoziLabs</strong>
+          <span class="footer-sep">·</span>
+          <span>Johannesburg, South Africa</span>
+        </div>
+        <p class="footer-note">
+          Dynamic Website Project Planner (Frontend MVP Prototype). Responses stay in your browser session.
+        </p>
+      </div>
+
+      <div class="footer-links-col">
+        <button type="button" class="footer-link-btn" data-open-privacy>
+          Privacy Notice (POPIA)
+        </button>
+        <span class="footer-sep" aria-hidden="true">•</span>
+        <a href="https://www.jozilabs.tech/" target="_blank" rel="noopener noreferrer" class="footer-link">
+          jozilabs.tech
+        </a>
+        <span class="footer-sep" aria-hidden="true">•</span>
+        <a href="mailto:hello@jozilabs.tech" class="footer-link">
+          hello@jozilabs.tech
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       PRIVACY NOTICE MODAL (ACCESSIBLE DIALOG)
+       ============================================================ -->
+  <div
+    class="modal-backdrop"
+    id="privacy-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="privacy-modal-title"
+    hidden
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <img src="assets/img/icon-48.png" alt="" width="28" height="28" class="modal-brand-icon">
+          <div>
+            <span class="modal-kicker">JoziLabs Privacy &amp; POPIA Notice</span>
+            <h2 id="privacy-modal-title">Your Privacy Matters</h2>
+          </div>
+        </div>
+        <button type="button" class="icon-btn modal-close-btn" id="close-privacy-modal-btn" aria-label="Close Privacy Notice">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          JoziLabs respects your privacy. Information requested through this questionnaire is intended to help us understand your project requirements, assess your needs and prepare a suitable quotation.
+        </p>
+
+        <p>
+          We aim to collect only information relevant to your enquiry. Please do not submit passwords, payment information or unnecessary sensitive personal information.
+        </p>
+
+        <div class="modal-alert-box">
+          <strong>Frontend Prototype Status</strong>
+          <p>
+            This version of the questionnaire is a frontend prototype. Your responses are not transmitted to JoziLabs or stored in a database. Do not use it to submit actual client information until a submission mechanism has been implemented.
+          </p>
+        </div>
+
+        <h3>Production Version &amp; POPIA Compliance Requirements</h3>
+        <p>
+          For the production version, the privacy notice must be updated to accurately explain:
+        </p>
+        <ul class="privacy-list">
+          <li>What personal information is collected.</li>
+          <li>Why the information is collected.</li>
+          <li>How and where it is processed and stored.</li>
+          <li>Who may access or receive the information.</li>
+          <li>How long information is retained.</li>
+          <li>How individuals can request access to, correction or deletion of their information.</li>
+          <li>How to contact JoziLabs regarding privacy concerns.</li>
+        </ul>
+
+        <p class="privacy-popia-note">
+          The final production implementation is designed to align with South Africa's <strong>Protection of Personal Information Act (POPIA)</strong>. For any privacy or project enquiries, you can reach JoziLabs at <a href="mailto:hello@jozilabs.tech">hello@jozilabs.tech</a> or visit <a href="https://www.jozilabs.tech/" target="_blank" rel="noopener noreferrer">www.jozilabs.tech</a>.
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="acknowledge-privacy-btn">
+          Close Privacy Notice
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
