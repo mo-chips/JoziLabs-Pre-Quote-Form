@@ -1,12 +1,14 @@
 /**
- * JoziLabs – Website Project Discovery Form
+ * JoziLabs – Multi-Service Discovery Form Validation
  * scripts/validation.js
  *
- * Context-aware validation rules that dynamically validate only the active branch
- * (Local vs International location, New vs Existing website, WhatsApp/Phone contact preference).
+ * Context-aware validation rules that dynamically validate:
+ * - Step 1: Common client & location fields (adapting org requirement for Tutoring vs Business services)
+ * - Steps 2–4: Service-specific required fields delegated to the active service module in scripts/services/*.js
+ * - Step 5: Accuracy & contact consent checkboxes
  */
 
-import { getDynamicFlowState } from './form-data.js';
+import { getServiceModule, getDynamicFlowState } from './form-engine.js';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_REGEX = /^[+\d\s()-]{7,22}$/;
@@ -23,11 +25,12 @@ export function isValidUrl(value) {
   }
 }
 
-export function validateField(fieldName, data) {
-  const flow = getDynamicFlowState(data);
+export function validateField(fieldName, data, serviceId = 'web-development') {
+  const service = getServiceModule(serviceId);
+  const flow = getDynamicFlowState(service.id, data);
 
   switch (fieldName) {
-    // Step 1 – About You & Location
+    // Step 1 – Common Client & Location Validation
     case 'contactName':
       if (!data.contactName || !data.contactName.trim()) {
         return 'Please enter your name.';
@@ -35,8 +38,8 @@ export function validateField(fieldName, data) {
       return null;
 
     case 'businessName':
-      if (!data.businessName || !data.businessName.trim()) {
-        return 'Please enter your business or project name.';
+      if (flow.isOrgRequired && (!data.businessName || !data.businessName.trim())) {
+        return 'Please enter your business, organisation, or project name.';
       }
       return null;
 
@@ -51,7 +54,9 @@ export function validateField(fieldName, data) {
 
     case 'phone':
       if (flow.isPhoneRequired && (!data.phone || !data.phone.trim())) {
-        return `Please enter your ${data.preferredContact === 'WhatsApp' ? 'WhatsApp' : 'phone'} number so we can reach you.`;
+        return `Please enter your ${
+          data.preferredContact === 'WhatsApp' ? 'WhatsApp' : 'phone'
+        } number so we can reach you.`;
       }
       if (data.phone && data.phone.trim() && !PHONE_REGEX.test(data.phone.trim())) {
         return 'Please enter a valid phone number (e.g. 082 123 4567).';
@@ -76,46 +81,6 @@ export function validateField(fieldName, data) {
       }
       return null;
 
-    // Step 2 – Dynamic Branching: New vs Existing
-    case 'siteSituation':
-      if (!data.siteSituation) {
-        return 'Please select whether this is a brand-new site or an existing website.';
-      }
-      return null;
-
-    case 'newSiteType':
-      if (flow.isNewSite && !data.newSiteType) {
-        return 'Please choose the type of new site you want to build.';
-      }
-      return null;
-
-    case 'existingWebsiteUrl':
-      if (flow.isExistingSite) {
-        if (!data.existingWebsiteUrl || !data.existingWebsiteUrl.trim()) {
-          return 'Please enter your current website address so we can inspect it.';
-        }
-        if (!isValidUrl(data.existingWebsiteUrl)) {
-          return 'Please enter a valid website URL (e.g. mybusiness.co.za).';
-        }
-      }
-      return null;
-
-    case 'existingSiteTasks':
-      if (
-        flow.isExistingSite &&
-        (!Array.isArray(data.existingSiteTasks) || data.existingSiteTasks.length === 0)
-      ) {
-        return 'Please select at least one thing you need done on your existing site.';
-      }
-      return null;
-
-    // Step 4 – Budget Ballpark
-    case 'estimatedBudget':
-      if (!data.estimatedBudget) {
-        return 'Please select an estimated budget range.';
-      }
-      return null;
-
     // Step 5 – Review & Consent
     case 'confirmAccurate':
       if (!data.confirmAccurate) {
@@ -129,33 +94,35 @@ export function validateField(fieldName, data) {
       }
       return null;
 
+    // Steps 2, 3, 4 – Delegated to the active service schema
     default:
+      if (typeof service.validateField === 'function') {
+        return service.validateField(fieldName, data, flow, { isValidUrl });
+      }
       return null;
   }
 }
 
-export function getStepFields(stepId, data) {
-  const flow = getDynamicFlowState(data);
+export function getStepFields(stepId, data, serviceId = 'web-development') {
+  const service = getServiceModule(serviceId);
+  const flow = getDynamicFlowState(service.id, data);
 
   switch (stepId) {
     case 1:
       return [
         'contactName',
-        'businessName',
+        ...(flow.isOrgRequired ? ['businessName'] : []),
         'email',
         'phone',
         ...(flow.isLocal ? ['province', 'city'] : ['country'])
       ];
     case 2:
-      return [
-        'siteSituation',
-        ...(flow.isNewSite ? ['newSiteType'] : []),
-        ...(flow.isExistingSite ? ['existingWebsiteUrl', 'existingSiteTasks'] : [])
-      ];
     case 3:
-      return [];
     case 4:
-      return ['estimatedBudget'];
+      if (typeof service.getRequiredFields === 'function') {
+        return service.getRequiredFields(stepId, data, flow);
+      }
+      return stepId === 4 ? ['estimatedBudget'] : [];
     case 5:
       return ['confirmAccurate', 'consentContact'];
     default:
@@ -163,13 +130,13 @@ export function getStepFields(stepId, data) {
   }
 }
 
-export function validateStep(stepId, data) {
-  const fields = getStepFields(stepId, data);
+export function validateStep(stepId, data, serviceId = 'web-development') {
+  const fields = getStepFields(stepId, data, serviceId);
   const errors = {};
   let firstInvalidField = null;
 
   for (const field of fields) {
-    const error = validateField(field, data);
+    const error = validateField(field, data, serviceId);
     if (error) {
       errors[field] = error;
       if (!firstInvalidField) {
@@ -185,12 +152,12 @@ export function validateStep(stepId, data) {
   };
 }
 
-export function validateAllSteps(data) {
+export function validateAllSteps(data, serviceId = 'web-development') {
   const stepResults = {};
   let firstInvalidStep = null;
 
   for (let stepId = 1; stepId <= 5; stepId++) {
-    const result = validateStep(stepId, data);
+    const result = validateStep(stepId, data, serviceId);
     stepResults[stepId] = result;
     if (!result.isValid && firstInvalidStep === null) {
       firstInvalidStep = stepId;
